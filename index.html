@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Image to Video Generator</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: #111;
+      color: white;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+    }
+    img, video {
+      max-width: 90%;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>AI Image to Video Generator</h1>
+
+  <input type="file" id="imageInput" accept="image/*"><br>
+  <button onclick="generateVideo()">Generate Video</button>
+
+  <div id="output"></div>
+
+  <script>
+    function generateVideo() {
+      const file = document.getElementById("imageInput").files[0];
+
+      if (!file) {
+        alert("Please upload an image");
+        return;
+      }
+
+      const reader = new FileReader();
+
+      reader.onload = function(e) {
+        const imgUrl = e.target.result;
+
+        // Fake demo (real AI needs API)
+        document.getElementById("output").innerHTML = `
+          <h3>Preview</h3>
+          <img src="${imgUrl}" />
+          <p>Video generation requires AI API integration</p>
+        `;
+      };
+
+      reader.readAsDataURL(file);
+    }
+  </script>
+
+</body>
+</html>
